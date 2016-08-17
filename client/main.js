@@ -1,7 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 var num = 0;
-angular.module('rssfeedreader',[
+angular.module('nikiai',[
     angularMeteor
     ])
     .controller("RssFeedCtrl", ['$scope','$sce','FeedService','$interval', function ($scope,$sce,Feed,$interval) {
