@@ -1,0 +1,24 @@
+<div ng-controller="RssFeedCtrl">
+  <ul>
+    <li ng-repeat="feed in Feeds">
+      {{party.name}}
+      <p>{{party.description}}</p>
+    </li>
+  </ul>
+  <div class="row-fluid">
+    <div class = 'righttop'>
+      <p>{{date | date:'yyyy-MM-dd'}} Time Spent: {{counter}}</p>
+    </div>
+            <ul class="unstyled">
+                <span class="badge badge-warning" ng-show="feeds.length > 0">{{(feeds | filter:filterText).length}} Items</span>
+                <li ng-repeat="feed in feeds | filter:filterText">
+                    <button ng-click="showme=true">Hide</button>                    
+                    <h5 ng-hide="showme"><a href="{{feed.link}}">{{feed.title}}</a></h5>                                        
+                    <p class="text-left" ng-hide="showme">{{feed.contentSnippet}}</p>
+                    <span class="small" ng-hide="showme">{{feed.publishedDate}}</span>
+                    <div ng-hide="showme"> <span ng-bind-html="$sce.trustAsHtml(feed.content)"></span></div>
+                    <p ng-show="showme">Data is now Hidden</p>
+                </li>
+            </ul>            
+  </div>
+</div>
